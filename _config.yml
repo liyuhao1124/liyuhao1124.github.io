@@ -81,11 +81,11 @@ analytics:
 # Site Author
 author:
   name             : "Yuhao Li"
-  avatar           : "Yuhao.png"
+  avatar           : "Yuhao.jpg"
   bio              : "EECS, Peking University"
   location         : "Beijing, China"
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?hl=en&user=VBjlDboAAAAJ"
   email            :
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
