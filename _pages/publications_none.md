@@ -1,8 +1,8 @@
 ---
 layout: archive
-title: "Publications"
-permalink: /publications/
-author_profile: false
+title: "Publications_none"
+permalink: /publications_none/
+author_profile: true
 ---
 
 ## 2020
