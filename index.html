@@ -29,14 +29,14 @@
         .tag {
             display: inline-block;
             padding: 2px 6px;
-            margin: 2px 4px;   /* 只留一点小间距 */
+            margin: 2px 4px;   
             background-color: #eee;
             border-radius: 4px;
             font-size: 85%;
             color: #333;
         }
         .tag-group {
-            margin-left: 2.5em;  /* 让所有 tag 一起右移，而不是每个单独移 */
+            margin-left: 2.5em; 
         }
         .filter-btn {
             margin: 5px 4px;
@@ -65,11 +65,11 @@
         .profile-pic {
             width: 100%;
             border-radius: 8px;
-            margin-top: 30px; /* 加这一行即可 */
+            margin-top: 30px; 
         }
         .page-section {
           padding: 40px;
-          padding-top: 80px; /* ⬅️ 避开顶部导航栏 */
+          padding-top: 80px; 
           box-sizing: border-box;
         }
 
@@ -86,13 +86,11 @@
             list-style-type: disc;
         }
 
-        /* 控制子项缩进距离 */
         .paper ul ul {
             margin: 0;
-            padding-left: 1.5em;  /* 控制缩进宽度，推荐 1em - 2em 之间 */
+            padding-left: 1.5em; 
         }
 
-        /* 子项之间行距 */
         .paper li {
             margin-bottom: 2px;
         }
@@ -106,8 +104,8 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.08);
         }
         .special {
-          background-color: #ffd700; /* 金黄色 */
-          color: black;              /* 字体颜色可选 */
+          background-color: #ffd700; 
+          color: black;       
           font-weight: bold;
         }
         .fixedpoint-tag {
@@ -116,16 +114,43 @@
           font-weight: bold;
         }
 
+        .news-table {
+          width: 100%;
+          margin-top: 10px;
+/*          padding: 0 60px; */
+          box-sizing: border-box;
+        }
+
+        .news-section {
+          padding-left: 40px;  /* pushes the whole section right */
+        }
+
+
+        .news-row {
+          display: flex;
+          margin-bottom: 12px;
+        }
+
+        .news-date {
+          flex: 0 0 100px;  /* fixed width for date column */
+          font-weight: bold;
+          color: #555;
+        }
+
+        .news-content {
+          flex: 1;  /* take the remaining space */
+        }
+
+
     </style>
 </head>
 
 
 <body>
-<!-- <div class="main-container"> -->
 
 <div style="position: fixed; top: 0; left: 0; width: 100%; background-color: white; padding: 10px 0; border-bottom: 1px solid #ccc; text-align: center; z-index: 1000;">
     <a href="#" onclick="showSection('home')" style="margin: 0 15px;">Home</a>
-    <a href="#" onclick="showSection('publications')" style="margin: 0 15px;">Publication</a>
+    <a href="#" onclick="showSection('publications')" style="margin: 0 15px;">Publications</a>
     <a href="#" onclick="showSection('visits')" style="margin: 0 15px;">Experience</a>
 </div>
 
@@ -144,20 +169,59 @@
     <div class="right-column">
         <h1>Yuhao Li (李毓浩)</h1>
 
-        <p>I am a fourth-year (2021-present) PhD student in the <a href="https://theory.cs.columbia.edu/" target="_blank">theory group</a> at Columbia University, honored to be advised by Prof. <a href="https://www.cs.columbia.edu/~xichen/Welcome.html" target="_blank">Xi Chen</a> and Prof. <a href="http://www.cs.columbia.edu/~rocco/" target="_blank">Rocco Servedio</a>. Starting from my PhD, I am also extremely fortunate to closely collaborate with Prof. <a href="https://www.cs.columbia.edu/~toni/" target="_blank">Toniann Pitassi</a> and Prof. <a href="https://www.cs.columbia.edu/~mihalis/" target="_blank">Mihalis Yannakakis</a>.</p>
+        <p>I am a fifth-year (2021-present) PhD student in the <a href="https://theory.cs.columbia.edu/" target="_blank">theory group</a> at Columbia University, honored to be advised by Prof. <a href="https://www.cs.columbia.edu/~xichen/Welcome.html" target="_blank">Xi Chen</a> and Prof. <a href="http://www.cs.columbia.edu/~rocco/" target="_blank">Rocco Servedio</a>. Starting from my PhD, I am also extremely fortunate to closely collaborate with Prof. <a href="https://www.cs.columbia.edu/~toni/" target="_blank">Toniann Pitassi</a> and Prof. <a href="https://www.cs.columbia.edu/~mihalis/" target="_blank">Mihalis Yannakakis</a>.</p>
 
-        <p>Prior to that, I got the B.Sc. degree in computer science from Peking University, where I was extremely fortunate to be advised by Prof. <a href="https://cfcs.pku.edu.cn/english/people/faculty/xiaotiedeng/index.htm" target="_blank">Xiaotie Deng</a> on algorithmic game theory.</p>
+        <p>Prior to that, I got a B.Sc. degree in computer science from Peking University, where I was extremely fortunate to be advised by Prof. <a href="https://cfcs.pku.edu.cn/english/people/faculty/xiaotiedeng/index.htm" target="_blank">Xiaotie Deng</a> on algorithmic game theory.</p>
 
         <p>I am <b>broadly</b> interested in theoretical computer science and discrete mathematics, including complexity theory (TFNP, proof complexity, communication complexity), game theory, logic and automata theory, and combinatorics.</p>
 
         <p>Email: yuhaoli (at) cs.columbia.edu</p>
 
 
-    <h2>News</h2>
 
-    <ul><li class="title"> Under construction...</li></ul>
 </div>
 </div> 
+
+<div class="news-section">
+
+        <h2>News</h2>
+
+        <div class="news-table">
+
+          <div class="news-row">
+            <div class="news-date">Sep 2025</div>
+            <div class="news-content">I will give talks at theory seminars at Rutgers, UPenn, CMU, and Columbia. Look forward to the visits!</div>
+          </div>
+
+          <div class="news-row">
+            <div class="news-date">Aug 2025</div>
+            <div class="news-content">Our paper <i><a href="https://eccc.weizmann.ac.il/report/2023/073/" target="_blank">Reducing Tarski to Unique Tarski (in the Black-box Model)</a></i> was accepted by <strong>SICOMP</strong>.</div>
+          </div>
+
+          <div class="news-row">
+            <div class="news-date">Jun 2025</div>
+            <div class="news-content">I presented <i><a href="https://arxiv.org/abs/2411.15515" target="_blank">Metamathematics of Resolution Lower Bounds: A TFNP Perspective</a></i> (joint with <a href="https://hanlin-ren.github.io/" target="_blank">Hanlin</a> and <a href="https://www.cs.utexas.edu/~davidlee/" target="_blank">Jiawei</a>) at the <strong>STOC 2025 TFNP Workshop</strong>. Check out a new refuter problem!</div>
+          </div>
+
+          <div class="news-row">
+            <div class="news-date">May 2025</div>
+            <div class="news-content">Two papers were accepted to <strong>EC 2025</strong>.
+            </div>
+          </div>
+
+          <div class="news-row">
+            <div class="news-date">Apr 2025</div>
+            <div class="news-content">Our work <i><a href="https://arxiv.org/abs/2403.19911" target="_blank">Computing a Fixed Point of Contraction Maps in Polynomial Queries</a></i> was invited to <strong>HALG 2025</strong>.</div>
+          </div>
+
+          <div class="news-row">
+            <div class="news-date">Mar 2025</div>
+            <div class="news-content">Our paper <i><a href="https://arxiv.org/abs/2403.19911" target="_blank">Computing a Fixed Point of Contraction Maps in Polynomial Queries</a></i> was accepted by <strong>JACM</strong> (see also an improved bound in the newest version).</div>
+          </div>
+          </div> 
+
+        </div>
+
 </div>
 </div>
 
@@ -178,7 +242,7 @@
       computation.
     </p>
 
-<p style="font-family:verdana;font-size:135%;color:DodgerBlue;padding-left:0.3em"> 2025 </font> </p>
+<p style="font-family:verdana;font-size:135%;color:DodgerBlue;padding-left:0.3em"> 2025 </p>
 
     <div class="paper TFNP FixedPoint">
         <li class="title"> The Mystery Deepens: On the Query Complexity of Tarski Fixed Points </li>
@@ -187,18 +251,18 @@
         <div class="tag-group"><span class="tag">TFNP</span><span class="tag fixedpoint-tag">Fixed Point</span></div>
     </div>
 
-    <div class="paper TFNP GameTheory">
-        <li class="title"> Constant Inapproximability of Pacing Equilibria in Second-Price Auctions (<a href="https://arxiv.org/abs/2501.15295" target="_blank">arXiv</a>) </li>
-        <ul><ul><li>Xi Chen, Yuhao Li</li></ul></ul>
-        <ul><ul><li><i>In submission</i></li></ul></ul>
-        <div class="tag-group"><span class="tag">TFNP</span><span class="tag">Game Theory</span></div>
-    </div>
-
     <div class="paper TFNP ProofComplexity">
         <li class="title">Metamathematics of Resolution Lower Bounds: A TFNP Perspective (<a href="https://arxiv.org/abs/2411.15515" target="_blank">arXiv</a>)</li>
         <ul><ul><li>Jiawei Li, Yuhao Li, Hanlin Ren</li></ul></ul>
         <ul><ul><li><i>In submission</i></li></ul></ul>
         <div class="tag-group"><span class="tag">TFNP</span><span class="tag">Proof Complexity</span></div>
+    </div>
+
+    <div class="paper TFNP GameTheory">
+        <li class="title"> Constant Inapproximability of Pacing Equilibria in Second-Price Auctions (<a href="https://arxiv.org/abs/2501.15295" target="_blank">arXiv</a>) </li>
+        <ul><ul><li>Xi Chen, Yuhao Li</li></ul></ul>
+        <ul><ul><li><i>In submission</i></li></ul></ul>
+        <div class="tag-group"><span class="tag">TFNP</span><span class="tag">Game Theory</span></div>
     </div>
 
     <div class="paper Blockchain GameTheory">
@@ -224,7 +288,7 @@
         <div class="tag-group"><span class="tag">Property Testing</span></div>
     </div>
 
-<p style="font-family:verdana;font-size:135%;color:DodgerBlue;padding-left:0.3em"> 2024 </font> </p>
+<p style="font-family:verdana;font-size:135%;color:DodgerBlue;padding-left:0.3em"> 2024 </p>
 
 
     <div class="paper TFNP FixedPoint">
@@ -259,7 +323,7 @@
 
 
 
-<p style="font-family:verdana;font-size:135%;color:DodgerBlue;padding-left:0.3em"> 2023 </font> </p>
+<p style="font-family:verdana;font-size:135%;color:DodgerBlue;padding-left:0.3em"> 2023 </p>
 
 
     <div class="paper Blockchain GameTheory">
@@ -274,10 +338,11 @@
         <li class="title"> Reducing Tarski to Unique Tarski (in the Black-box Model) (<a href="https://eccc.weizmann.ac.il/report/2023/073/" target="_blank">ECCC</a>)</li>
         <ul><ul><li>Xi Chen, Yuhao Li, Mihalis Yannakakis</li></ul></ul>
         <ul><ul><li><i>CCC 2023 (Computational Complexity Conference)</i></li></ul></ul>
+        <ul><ul><li><i>SIAM Journal on Computing</i></li></ul></ul>
         <div class="tag-group"><span class="tag">TFNP</span><span class="tag fixedpoint-tag">Fixed Point</span><span class="tag special">Special Issue</span></div>
     </div>
 
-<p style="font-family:verdana;font-size:135%;color:DodgerBlue;padding-left:0.3em"> 2022 </font> </p>
+<p style="font-family:verdana;font-size:135%;color:DodgerBlue;padding-left:0.3em"> 2022 </p>
 
 
     <div class="paper Blockchain GameTheory">
@@ -319,9 +384,9 @@
 
     <li class="title"> Student Researcher, Google Research NYC (Spring 2025), hosted by <a href="https://pages.cs.wisc.edu/~yifengt/">Yifeng Teng</a></li>
 
-    <li class="title"> Simons Institute, UC Berkerley (Summer 2024), <a href="https://simons.berkeley.edu/programs/sublinear-algorithms">Sublinear Algorithm</a> (and <a href="https://simons.berkeley.edu/programs/extended-reunion-theoretical-foundations-computer-systems">Theoretical Foundations of Computer Systems</a>)</li>
+    <li class="title"> Simons Institute, UC Berkeley (Summer 2024), <a href="https://simons.berkeley.edu/programs/sublinear-algorithms">Sublinear Algorithm</a> (and <a href="https://simons.berkeley.edu/programs/extended-reunion-theoretical-foundations-computer-systems">Theoretical Foundations of Computer Systems</a>)</li>
     <li class="title"> McGill University (Summer 2023), hosted by <a href="https://www.cs.mcgill.ca/~robere/">Robert Robere</a></li>
-    <li class="title"> Simons Institute, UC Berkerley (Spring 2023), <a href="https://simons.berkeley.edu/programs/Meta-Complexity2023">Meta-Complexity</a></li>
+    <li class="title"> Simons Institute, UC Berkeley (Spring 2023), <a href="https://simons.berkeley.edu/programs/Meta-Complexity2023">Meta-Complexity</a></li>
     <li class="title"> Peking University (Summer 2022), hosted by <a href="https://cfcs.pku.edu.cn/english/people/faculty/xiaotiedeng/index.htm">Xiaotie Deng</a></li>
 </div>
 </div>
@@ -343,7 +408,7 @@
     <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=0&t=n&d=UQ7aDFZlptcZssb7wqks3GVZR3PUIFz6Y-Z4YEMBdkE'></script>
 
     <div class="foot">
-        Last updated: May 15, 2025
+        Last updated: Sep 8, 2025
     </div>
 
 <script>
