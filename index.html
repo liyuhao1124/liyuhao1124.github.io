@@ -1,200 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Yuhao Li's Homepage</title>
-    <link rel="stylesheet" href="./files/main.css" type="text/css">
-    <style>
-        body {
-            margin: 0;
-            background-color: #f8f8f8;
-            font-family: "Segoe UI", Arial, sans-serif;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-
-        a:link, a:visited {
-            color: DodgerBlue;
-            text-decoration: none;
-        }
-        a:hover {
-            color: red;
-            text-decoration: underline;
-        }
-        a:active {
-            color: yellow;
-            text-decoration: underline;
-        }
-        .tag {
-            display: inline-block;
-            padding: 2px 6px;
-            margin: 2px 4px;   
-            background-color: #eee;
-            border-radius: 4px;
-            font-size: 85%;
-            color: #333;
-        }
-        .tag-group {
-            margin-left: 2.5em; 
-        }
-        .filter-btn {
-            margin: 5px 4px;
-            padding: 5px 10px;
-            cursor: pointer;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-        }
-        .filter-btn:hover {
-            background-color: #ddd;
-        }
-        .flex-layout {
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            gap: 30px;
-        }
-        .left-column {
-            flex: 0 0 320px; 
-        }
-
-        .right-column {
-            flex: 1;
-        }
-        .profile-pic {
-            width: 100%;
-            border-radius: 8px;
-            margin-top: 30px; 
-        }
-        .page-section {
-          padding: 40px;
-          padding-top: 80px; 
-          box-sizing: border-box;
-        }
-
-        .paper {
-            margin-bottom: 1em;
-            padding: 0;
-            line-height: 1.4;
-            font-size: 95%;
-        }
-
-        .paper li.title {
-            margin-bottom: 4px;
-            font-weight: bold;
-            list-style-type: disc;
-        }
-
-        .paper ul ul {
-            margin: 0;
-            padding-left: 1.5em; 
-        }
-
-        .paper li {
-            margin-bottom: 2px;
-        }
-        .card-box {
-            max-width: 1000px;
-            min-height: calc(100vh - 160px);
-            margin: 0 auto;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 6px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.08);
-        }
-        .special {
-          background-color: #FDE047; 
-          color: #713F12;       
-          font-weight: bold;
-        }
-        .fixedpoint-tag {
-          background: linear-gradient(to right, #89f7fe, #66a6ff); /* 青蓝渐变 */
-          color: white;
-          font-weight: bold;
-        }
-
-        .news-table {
-          width: 100%;
-          margin-top: 10px;
-/*          padding: 0 60px; */
-          box-sizing: border-box;
-        }
-
-        .news-section {
-          padding-left: 40px;  /* pushes the whole section right */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yuhao Li's Homepage</title>
+  <link rel="stylesheet" href="./files/main.css" type="text/css">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
 
 
-        .news-row {
-          display: flex;
-          margin-bottom: 12px;
-        }
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background-color: #f8f8f8;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #333;
+      line-height: 1.55;
+    }
 
-        .news-date {
-          flex: 0 0 100px;  /* fixed width for date column */
-          font-weight: bold;
-          color: #555;
-        }
+    a:link, a:visited { color: DodgerBlue; text-decoration: none; }
+    a:hover { color: DodgerBlue; text-decoration: underline; }
+    a:active { color: DodgerBlue; text-decoration: underline; }
 
-        .news-content {
-          flex: 1;  /* take the remaining space */
-        }
+    .page-section {
+      padding: 80px 40px 40px;
+      box-sizing: border-box;
+    }
+
+    .card-box {
+      max-width: 1100px;
+      min-height: calc(100vh - 160px);
+      margin: 0 auto;
+      padding: 40px 60px;
+      background-color: #fff;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
+      box-sizing: border-box;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+      z-index: 1000;
+    }
+    .navbar a { margin: 0 15px; }
+
+    .flex-layout {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 30px;
+    }
+    .left-column { flex: 0 0 320px; }
+    .right-column { flex: 1; min-width: 0; }
+
+    .profile-pic {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 30px;
+      display: block;
+    }
+
+    .news-section { padding-left: 40px; }
+    .news-table { width: 100%; margin-top: 10px; box-sizing: border-box; }
+    .news-row { display: flex; gap: 16px; margin-bottom: 12px; }
+    .news-date { flex: 0 0 100px; font-weight: 700; color: #555; }
+    .news-content { flex: 1; min-width: 0; }
+
+    #filters { margin-top: 4px; margin-bottom: 12px; }
+    .filter-btn{
+      margin: 5px 4px;
+      padding: 5px 10px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      border-radius: 6px;
+      font: inherit;
+      line-height: 1.1;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .filter-btn:hover { background-color: #ddd; }
+
+    .fixedpoint-tag{
+      font-family: "Kalam", cursive;
+      font-weight: 700;  font-weight: 600;
+      font-size: 1.05em;
+      letter-spacing: 0.5px;
+
+      background: rgba(30,144,255,0.12);
+      color: DodgerBlue;
+      border: 1px solid rgba(30,144,255,0.55);
+      border-radius: 999px;
+
+      padding: 4px 14px;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1.1;
+      position: relative;
+      top: -1px;
+    }
 
 
-    </style>
+    #publications ul, #publications ol { margin: 0; padding: 0; list-style: none; }
+    #publications li { list-style: none; }
+
+    .year-divider {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 44px 0 22px;
+    }
+    .year-divider::before,
+    .year-divider::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid #eee;
+    }
+    .year-divider span {
+      font-size: 1.15em;
+      font-weight: 600;
+      color: #888;
+      letter-spacing: 1px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .paper {
+      margin: 0 0 1.6em 0;
+      font-size: 0.97em;
+      line-height: 1.45;
+    }
+
+    .paper-title {
+      display: block;
+      font-weight: 700;
+      font-size: 1.05em;
+      color: #000;
+      text-decoration: none;
+      margin: 0 0 4px 0;
+      line-height: 1.32;
+    }
+    #publications a.paper-title:link,
+    #publications a.paper-title:visited,
+    #publications a.paper-title:hover,
+    #publications a.paper-title:active {
+      color: #000;
+      text-decoration: none;
+    }
+    #publications a.paper-title:hover { text-decoration: underline; }
+
+    .authors-row {
+      color: #333;
+      font-size: 0.95em;
+      margin: 0 0 3px 0;
+    }
+
+    .venue-row {
+      color: #a52a2a;
+      font-weight: 500;
+      font-size: 0.95em;
+      margin: 0;
+    }
+
+    .supp-link {
+      color: DodgerBlue;
+      margin-left: 10px;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.9em;
+      white-space: nowrap;
+    }
+    .supp-link:hover { text-decoration: underline; }
+
+    .special {
+      background-color: #FDE047;
+      color: #713F12;
+      font-weight: 700;
+      padding: 0 6px;
+      border-radius: 4px;
+      margin-left: 10px;
+      display: inline-block;
+    }
+
+    #visits ul { padding-left: 26px; margin: 0; }
+
+    .foot {
+      text-align: center;
+      margin: 0 0 20px;
+      color: #888;
+      font-size: 0.8em;
+    }
+
+    @media (max-width: 900px) {
+      .page-section { padding: 80px 18px 24px; }
+      .card-box { padding: 28px 22px; }
+      .flex-layout { flex-direction: column; }
+      .left-column { flex: none; width: 100%; max-width: 420px; }
+      .news-section { padding-left: 0; }
+      .news-row { flex-direction: column; gap: 6px; }
+      .news-date { flex: none; }
+    }
+  </style>
 </head>
 
-
 <body>
+  <div class="navbar">
+    <a href="#" onclick="showSection('home'); return false;">Home</a>
+    <a href="#" onclick="showSection('publications'); return false;">Publications</a>
+    <a href="#" onclick="showSection('visits'); return false;">Experience</a>
+  </div>
 
-<div style="position: fixed; top: 0; left: 0; width: 100%; background-color: white; padding: 10px 0; border-bottom: 1px solid #ccc; text-align: center; z-index: 1000;">
-    <a href="#" onclick="showSection('home')" style="margin: 0 15px;">Home</a>
-    <a href="#" onclick="showSection('publications')" style="margin: 0 15px;">Publications</a>
-    <a href="#" onclick="showSection('visits')" style="margin: 0 15px;">Experience</a>
-</div>
+  <div id="home" class="page-section">
+    <div class="card-box">
+      <div class="flex-layout">
+        <div class="left-column">
+          <img id="profilePic" src="./files/Yuhao Disney.jpg" alt="Yuhao Li" class="profile-pic" loading="lazy" decoding="async">
+          <div class="contact-box">
+            <p><strong>Email</strong>: yuhaoli at cs.columbia.edu</p>
+            <p><strong>Office</strong>: 516 Computer Science Building</p>
+            <p><a href="https://scholar.google.com/citations?user=VBjlDboAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></p>
+          </div>
+        </div>
 
-<div id="home" class="page-section">
-  <div class="card-box">
-    <div class="flex-layout">
-    <div class="left-column">
-        <img id="profilePic" src="./files/Yuhao Disney.jpg" alt="Yuhao Li" class="profile-pic" loading="lazy" decoding="async">
-      <div class="contact-box">
-        <p><strong>Email</strong>: yuhaoli at cs.columbia.edu</p>
-        <p><strong>Office</strong>: 516 Computer Science Building</p>
-        <p><a href="https://scholar.google.com/citations?user=VBjlDboAAAAJ&hl=en" target="_blank">Google Scholar</a></p>
+        <div class="right-column">
+          <h1>Yuhao Li (李毓浩)</h1>
+
+          <p>I am a fifth-year (2021-present) PhD student in the <a href="https://theory.cs.columbia.edu/" target="_blank" rel="noopener">theory group</a> at Columbia University, honored to be advised by Prof. <a href="https://www.cs.columbia.edu/~xichen/Welcome.html" target="_blank" rel="noopener">Xi Chen</a> and Prof. <a href="http://www.cs.columbia.edu/~rocco/" target="_blank" rel="noopener">Rocco Servedio</a>. Starting from my PhD, I am also extremely fortunate to closely collaborate with Prof. <a href="https://www.cs.columbia.edu/~toni/" target="_blank" rel="noopener">Toniann Pitassi</a> and Prof. <a href="https://www.cs.columbia.edu/~mihalis/" target="_blank" rel="noopener">Mihalis Yannakakis</a>.</p>
+
+          <p>Prior to that, I got a B.Sc. degree in computer science from Peking University, where I was extremely fortunate to be advised by Prof. <a href="https://cfcs.pku.edu.cn/english/people/faculty/xiaotiedeng/index.htm" target="_blank" rel="noopener">Xiaotie Deng</a> on algorithmic game theory.</p>
+
+          <p>I am <b>broadly</b> interested in theoretical computer science and discrete mathematics, including complexity theory (TFNP, proof complexity, communication complexity), game theory, logic and automata theory, and combinatorics.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="right-column">
-        <h1>Yuhao Li (李毓浩)</h1>
-
-        <p>I am a fifth-year (2021-present) PhD student in the <a href="https://theory.cs.columbia.edu/" target="_blank">theory group</a> at Columbia University, honored to be advised by Prof. <a href="https://www.cs.columbia.edu/~xichen/Welcome.html" target="_blank">Xi Chen</a> and Prof. <a href="http://www.cs.columbia.edu/~rocco/" target="_blank">Rocco Servedio</a>. Starting from my PhD, I am also extremely fortunate to closely collaborate with Prof. <a href="https://www.cs.columbia.edu/~toni/" target="_blank">Toniann Pitassi</a> and Prof. <a href="https://www.cs.columbia.edu/~mihalis/" target="_blank">Mihalis Yannakakis</a>.</p>
-
-        <p>Prior to that, I got a B.Sc. degree in computer science from Peking University, where I was extremely fortunate to be advised by Prof. <a href="https://cfcs.pku.edu.cn/english/people/faculty/xiaotiedeng/index.htm" target="_blank">Xiaotie Deng</a> on algorithmic game theory.</p>
-
-        <p>I am <b>broadly</b> interested in theoretical computer science and discrete mathematics, including complexity theory (TFNP, proof complexity, communication complexity), game theory, logic and automata theory, and combinatorics.</p>
-
-
-
-
-</div>
-</div> 
-
-<div class="news-section">
-
+      <div class="news-section">
         <h2>News</h2>
-
         <div class="news-table">
-
           <div class="news-row">
             <div class="news-date">Jan 2026</div>
-            <div class="news-content">Our paper joint with <a href="https://hanlin-ren.github.io/" target="_blank">Hanlin</a> and <a href="https://www.cs.utexas.edu/~davidlee/" target="_blank">Jiawei</a>, <i><a href="https://arxiv.org/abs/2411.15515" target="_blank">Finding Bugs in Short Proofs: The Metamathematics of Resolution Lower Bounds</a></i>, was accepted to <strong>STOC 2026</strong>.</div>
+            <div class="news-content">Our paper joint with <a href="https://hanlin-ren.github.io/" target="_blank" rel="noopener">Hanlin</a> and <a href="https://www.cs.utexas.edu/~davidlee/" target="_blank" rel="noopener">Jiawei</a>, <i><a href="https://arxiv.org/abs/2411.15515" target="_blank" rel="noopener">Finding Bugs in Short Proofs: The Metamathematics of Resolution Lower Bounds</a></i>, was accepted to <strong>STOC 2026</strong>.</div>
           </div>
 
           <div class="news-row">
             <div class="news-date">Nov 2025</div>
-            <div class="news-content">Our paper with Xi Chen, <i><a href="https://arxiv.org/abs/2501.15295" target="_blank">Constant Inapproximability of Pacing Equilibria in Second-Price Auctions</a></i>, was accepted to <strong>WINE 2025</strong> and won an <strong>Outstanding Paper Award</strong>!</div>
+            <div class="news-content">Our paper with Xi Chen, <i><a href="https://arxiv.org/abs/2501.15295" target="_blank" rel="noopener">Constant Inapproximability of Pacing Equilibria in Second-Price Auctions</a></i>, was accepted to <strong>WINE 2025</strong> and won an <strong>Outstanding Paper Award</strong>!</div>
           </div>
 
           <div class="news-row">
@@ -204,240 +262,240 @@
 
           <div class="news-row">
             <div class="news-date">Aug 2025</div>
-            <div class="news-content">Our paper <i><a href="https://eccc.weizmann.ac.il/report/2023/073/" target="_blank">Reducing Tarski to Unique Tarski (in the Black-box Model)</a></i> was accepted by <strong>SICOMP</strong>.</div>
+            <div class="news-content">Our paper <i><a href="https://eccc.weizmann.ac.il/report/2023/073/" target="_blank" rel="noopener">Reducing Tarski to Unique Tarski (in the Black-box Model)</a></i> was accepted by <strong>SICOMP</strong>.</div>
           </div>
 
           <div class="news-row">
             <div class="news-date">Jun 2025</div>
-            <div class="news-content">I presented <i><a href="https://arxiv.org/abs/2411.15515" target="_blank">Finding Bugs in Short Proofs: The Metamathematics of Resolution Lower Bounds</a></i> (joint work with <a href="https://hanlin-ren.github.io/" target="_blank">Hanlin</a> and <a href="https://www.cs.utexas.edu/~davidlee/" target="_blank">Jiawei</a>) at the <strong>STOC 2025 TFNP Workshop</strong>. Check out a new refuter problem!</div>
+            <div class="news-content">I presented <i><a href="https://arxiv.org/abs/2411.15515" target="_blank" rel="noopener">Finding Bugs in Short Proofs: The Metamathematics of Resolution Lower Bounds</a></i> (joint work with <a href="https://hanlin-ren.github.io/" target="_blank" rel="noopener">Hanlin</a> and <a href="https://www.cs.utexas.edu/~davidlee/" target="_blank" rel="noopener">Jiawei</a>) at the <strong>STOC 2025 TFNP Workshop</strong>. Check out a new refuter problem!</div>
           </div>
 
           <div class="news-row">
             <div class="news-date">May 2025</div>
-            <div class="news-content">Two papers were accepted to <strong>EC 2025</strong>.
-            </div>
+            <div class="news-content">Two papers were accepted to <strong>EC 2025</strong>.</div>
           </div>
 
           <div class="news-row">
             <div class="news-date">Apr 2025</div>
-            <div class="news-content">Our work <i><a href="https://arxiv.org/abs/2403.19911" target="_blank">Computing a Fixed Point of Contraction Maps in Polynomial Queries</a></i> was invited to <strong>HALG 2025</strong>.</div>
+            <div class="news-content">Our work <i><a href="https://arxiv.org/abs/2403.19911" target="_blank" rel="noopener">Computing a Fixed Point of Contraction Maps in Polynomial Queries</a></i> was invited to <strong>HALG 2025</strong>.</div>
           </div>
 
           <div class="news-row">
             <div class="news-date">Mar 2025</div>
-            <div class="news-content">Our paper <i><a href="https://arxiv.org/abs/2403.19911" target="_blank">Computing a Fixed Point of Contraction Maps in Polynomial Queries</a></i> was accepted by <strong>JACM</strong> (see also an improved bound in the newest version).</div>
+            <div class="news-content">Our paper <i><a href="https://arxiv.org/abs/2403.19911" target="_blank" rel="noopener">Computing a Fixed Point of Contraction Maps in Polynomial Queries</a></i> was accepted by <strong>J. ACM</strong> (see also an improved bound in the newest version).</div>
           </div>
-          </div> 
-
         </div>
+      </div>
 
-</div>
-</div>
+    </div>
+  </div>
 
-<div id="publications" class="page-section" style="display: none;">
-  <div class="card-box">
-
-    <div id="filters">
+  <div id="publications" class="page-section" style="display: none;">
+    <div class="card-box">
+      <div id="filters">
         <button class="filter-btn" onclick="filterPubs('all')">All</button>
         <button class="filter-btn" onclick="filterPubs('TFNP')">TFNP</button>
         <button class="filter-btn" onclick="filterPubs('ProofComplexity')">Proof Complexity</button>
         <button class="filter-btn" onclick="filterPubs('GameTheory')">Game Theory</button>
         <button class="filter-btn" onclick="filterPubs('Blockchain')">Blockchain</button>
-    </div>
+      </div>
 
-    <p>
-      You may be curious about recent developments in 
+      <p>
+        You may be curious about recent developments in
         <button class="filter-btn fixedpoint-tag" onclick="filterPubs('FixedPoint')">Fixed Point</button>
-      computation.
-    </p>
+        computation.
+      </p>
 
-<p style="font-family:verdana;font-size:135%;color:DodgerBlue;padding-left:0.3em"> 2026 </p>
+      <div class="year-divider"><span>2026</span></div>
+      
+      <div class="paper TFNP FixedPoint">
+        <a class="paper-title"  href="https://arxiv.org/abs/2602.10296" target="_blank" rel="noopener">Quadratic Speedup for Computing Contraction Fixed Points</a>
+        <div class="authors-row">Xi Chen, Yuhao Li, Mihalis Yannakakis</div>
+        <div class="venue-row">In submission</div>
+      </div>
 
-    <div class="paper TFNP FixedPoint">
-        <li class="title"> The Mystery Deepens: On the Query Complexity of Tarski Fixed Points </li>
-        <ul><ul><li>Xi Chen, Yuhao Li, Mihalis Yannakakis</li></ul></ul>
-        <ul><ul><li><i>In submission</i></li></ul></ul>
-        <div class="tag-group"><span class="tag">TFNP</span><span class="tag fixedpoint-tag">Fixed Point</span></div>
+      <div class="paper TFNP FixedPoint">
+        <span class="paper-title">The Mystery Deepens: On the Query Complexity of Tarski Fixed Points</span>
+        <div class="authors-row">Xi Chen, Yuhao Li, Mihalis Yannakakis</div>
+        <div class="venue-row">In submission</div>
+      </div>
+
+      <div class="paper TFNP ProofComplexity">
+        <a class="paper-title" href="https://arxiv.org/abs/2411.15515" target="_blank" rel="noopener">
+          Finding Bugs in Short Proofs: The Metamathematics of Resolution Lower Bounds
+        </a>
+        <div class="authors-row">Jiawei Li, Yuhao Li, Hanlin Ren</div>
+        <div class="venue-row">STOC 2026</div>
+      </div>
+
+      <div class="paper Blockchain">
+        <span class="paper-title">A Trilemma in AMM Mechanism Design</span>
+        <div class="authors-row">Yuhao Li, Elaine Shi, Mengqian Zhang (Randomized Order)</div>
+        <div class="venue-row">FC 2026</div>
+      </div>
+
+      <div class="year-divider"><span>2025</span></div>
+
+      <div class="paper TFNP GameTheory">
+        <a class="paper-title" href="https://arxiv.org/abs/2501.15295" target="_blank" rel="noopener">
+          Constant Inapproximability of Pacing Equilibria in Second-Price Auctions
+        </a>
+        <div class="authors-row">Xi Chen, Yuhao Li</div>
+        <div class="venue-row">WINE 2025</div>
+      </div>
+
+      <div class="paper Blockchain GameTheory">
+        <span class="paper-title">Maximal Extractable Value in Batch Auctions</span>
+        <div class="authors-row">Mengqian Zhang*, Yuhao Li, Xinyuan Sun, Elynn Chen, Xi Chen <span style="color:#57068c;">(at NYU)</span></div>
+        <div class="venue-row">
+          EC 2025
+          <a href="https://www.tldresear.ch/conference" target="_blank" rel="noopener" class="supp-link">[TLDR 2024]</a>
+          <a href="https://tokenomics2024.hku-nft.com/" target="_blank" rel="noopener" class="supp-link">[Tokenomics 2024]</a>
+        </div>
+      </div>
+
+      <div class="paper GameTheory">
+        <a class="paper-title" href="https://arxiv.org/abs/2302.11829" target="_blank" rel="noopener">
+          Learning to Manipulate a Commitment Optimizer
+        </a>
+        <div class="authors-row">Yurong Chen, Xiaotie Deng, Jiarui Gan, Yuhao Li</div>
+        <div class="venue-row">EC 2025</div>
+      </div>
+
+      <div class="paper">
+        <a class="paper-title" href="https://arxiv.org/abs/2410.09235" target="_blank" rel="noopener">
+          Relative-error Monotonicity Testing
+        </a>
+        <div class="authors-row">Xi Chen, Anindya De, Yizhi Huang, Yuhao Li, Shivam Nadimpalli, Rocco A. Servedio, Tianqi Yang</div>
+        <div class="venue-row">SODA 2025</div>
+      </div>
+
+      <div class="year-divider"><span>2024</span></div>
+
+      <div class="paper TFNP FixedPoint">
+        <a class="paper-title" href="https://arxiv.org/abs/2403.19911" target="_blank" rel="noopener">
+          Computing a Fixed Point of Contraction Maps in Polynomial Queries
+        </a>
+        <div class="authors-row">Xi Chen, Yuhao Li, Mihalis Yannakakis</div>
+        <div class="venue-row">
+          STOC 2024 &nbsp; J. ACM 2025
+          <a href="https://www.youtube.com/watch?v=v8T-ZVp7QyY" target="_blank" rel="noopener" class="supp-link">Video (35 min)</a>
+        </div>
+      </div>
+
+      <div class="paper TFNP ProofComplexity">
+        <a class="paper-title" href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2024.74" target="_blank" rel="noopener">
+          Intersection Classes in TFNP and Proof Complexity
+        </a>
+        <div class="authors-row">Yuhao Li, William Pires, Robert Robere</div>
+        <div class="venue-row">ITCS 2024</div>
+      </div>
+
+      <div class="paper">
+        <a class="paper-title" href="https://arxiv.org/abs/2311.11119" target="_blank" rel="noopener">
+          Testing Intersecting and Union-Closed Families
+        </a>
+        <div class="authors-row">Xi Chen, Anindya De, Yuhao Li, Shivam Nadimpalli, Rocco A. Servedio</div>
+        <div class="venue-row">ITCS 2024</div>
+      </div>
+
+      <div class="paper">
+        <a class="paper-title" href="https://arxiv.org/abs/2309.12513" target="_blank" rel="noopener">
+          Mildly Exponential Lower Bounds on Tolerant Testers for Monotonicity, Unateness, and Juntas
+        </a>
+        <div class="authors-row">Xi Chen, Anindya De, Yuhao Li, Shivam Nadimpalli, Rocco A. Servedio</div>
+        <div class="venue-row">SODA 2024</div>
+      </div>
+
+      <div class="year-divider"><span>2023</span></div>
+
+      <div class="paper Blockchain">
+        <a class="paper-title" href="http://arxiv.org/abs/2309.12640" target="_blank" rel="noopener">
+          MEV Makes Everyone Happy under Greedy Sequencing Rule
+        </a>
+        <div class="authors-row">Yuhao Li*, Mengqian Zhang*, Jichen Li*, Elynn Chen, Xi Chen <span style="color:#57068c;">(at NYU)</span>, Xiaotie Deng (Non-alphabetical order)</div>
+        <div class="venue-row">
+          CCS DeFi 2023
+          <a href="https://tokenomics2023.splashthat.com/" target="_blank" rel="noopener" class="supp-link">[Tokenomics 2023]</a>
+        </div>
+      </div>
+
+      <div class="paper TFNP FixedPoint">
+        <a class="paper-title" href="https://eccc.weizmann.ac.il/report/2023/073/" target="_blank" rel="noopener">
+          Reducing Tarski to Unique Tarski (in the Black-box Model)
+        </a>
+        <div class="authors-row">Xi Chen, Yuhao Li, Mihalis Yannakakis</div>
+        <div class="venue-row">CCC 2023 &nbsp; SIAM J. Comput. 2026</div>
+      </div>
+
+      <div class="year-divider"><span>2022</span></div>
+
+      <div class="paper Blockchain GameTheory">
+        <a class="paper-title" href="https://arxiv.org/abs/2202.08466" target="_blank" rel="noopener">
+          Insightful Mining Equilibria
+        </a>
+        <div class="authors-row">Mengqian Zhang*, Yuhao Li, Jichen Li, Chaozhe Kong, Xiaotie Deng</div>
+        <div class="venue-row">WINE 2022</div>
+      </div>
+
+      <div class="paper GameTheory">
+        <a class="paper-title" href="https://arxiv.org/abs/2206.13119" target="_blank" rel="noopener">
+          Optimal Private Payoff Manipulation against Commitment in Extensive-form Games
+        </a>
+        <div class="authors-row">Yurong Chen, Xiaotie Deng, Yuhao Li</div>
+        <div class="venue-row">WINE 2022 &nbsp; Games Econ. Behav. 2025</div>
+      </div>
+
+      <div class="paper TFNP FixedPoint">
+        <a class="paper-title" href="https://arxiv.org/abs/2202.05913" target="_blank" rel="noopener">
+          Improved Upper Bounds for Finding Tarski Fixed Points
+        </a>
+        <div class="authors-row">Xi Chen, Yuhao Li</div>
+        <div class="venue-row">EC 2022</div>
+      </div>
+
+      <div class="paper GameTheory">
+        <a class="paper-title" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4226863" target="_blank" rel="noopener">
+          Tight Incentive Analysis on Sybil Attacks to Market Equilibrium of Resource Exchange over General Networks
+        </a>
+        <div class="authors-row">Yukun Cheng, Xiaotie Deng, Yuhao Li, Xiang Yan</div>
+        <div class="venue-row">EC 2022 &nbsp; Games Econ. Behav. 2024</div>
+      </div>
+
     </div>
+  </div>
 
-    <div class="paper TFNP ProofComplexity">
-        <li class="title">Finding Bugs in Short Proofs: The Metamathematics of Resolution Lower Bounds (<a href="https://arxiv.org/abs/2411.15515" target="_blank">arXiv</a>)</li>
-        <ul><ul><li>Jiawei Li, Yuhao Li, Hanlin Ren</li></ul></ul>
-        <ul><ul><li><i>STOC 2026 (ACM Symposium on Theory of Computing)</i></li></ul></ul>
-        <div class="tag-group"><span class="tag">TFNP</span><span class="tag">Proof Complexity</span></div>
+  <div id="visits" class="page-section" style="display: none;">
+    <div class="card-box">
+      <h2>Academic Visits</h2>
+      <ul>
+        <li>Simons Institute, UC Berkeley (Summer 2024), <a href="https://simons.berkeley.edu/programs/sublinear-algorithms" target="_blank" rel="noopener">Sublinear Algorithm</a> (and <a href="https://simons.berkeley.edu/programs/extended-reunion-theoretical-foundations-computer-systems" target="_blank" rel="noopener">Theoretical Foundations of Computer Systems</a>)</li>
+        <li>McGill University (Summer 2023), hosted by <a href="https://www.cs.mcgill.ca/~robere/" target="_blank" rel="noopener">Robert Robere</a></li>
+        <li>Simons Institute, UC Berkeley (Spring 2023), <a href="https://simons.berkeley.edu/programs/Meta-Complexity2023" target="_blank" rel="noopener">Meta-Complexity</a></li>
+        <li>Peking University (Summer 2022), hosted by <a href="https://cfcs.pku.edu.cn/english/people/faculty/xiaotiedeng/index.htm" target="_blank" rel="noopener">Xiaotie Deng</a></li>
+      </ul>
     </div>
+  </div>
 
-    <div class="paper Blockchain">
-        <li class="title"> A Trilemma in AMM Mechanism Design </li>
-        <ul><ul><li>Yuhao Li, Elaine Shi, Mengqian Zhang (Randomized Order)</li></ul></ul>
-        <ul><ul><li><i>FC 2026 (Financial Cryptography and Data Security)</i></li></ul></ul>
-        <div class="tag-group"><span class="tag">Blockchain</span></div>
-    </div>
-
-
-<p style="font-family:verdana;font-size:135%;color:DodgerBlue;padding-left:0.3em"> 2025 </p>
-
-    <div class="paper TFNP GameTheory">
-        <li class="title"> Constant Inapproximability of Pacing Equilibria in Second-Price Auctions (<a href="https://arxiv.org/abs/2501.15295" target="_blank">arXiv</a>) </li>
-        <ul><ul><li>Xi Chen, Yuhao Li</li></ul></ul>
-        <ul><ul><li><i>WINE 2025 (The Conference on Web and Internet Economics)</i></li></ul></ul>
-        <div class="tag-group"><span class="tag">TFNP</span><span class="tag">Game Theory</span><span class="tag special">Outstanding Paper</span></div>
-    </div>
-
-    <div class="paper Blockchain GameTheory">
-        <li class="title"> Maximal Extractable Value in Batch Auctions</li>
-        <ul><ul><li>Mengqian Zhang*, Yuhao Li, Xinyuan Sun, Elynn Chen, Xi Chen <i style="color:#57068c;">(at NYU)</i></li></ul></ul>
-        <ul><ul><li><i>EC 2025 (The ACM Conference on Economics and Computation)</i></li></ul></ul>
-        <ul><ul><li><i>Also accepted for presentations in <a href="https://www.tldresear.ch/conference" target="_blank">TLDR 2024 </a> and <a href="https://tokenomics2024.hku-nft.com/" target="_blank">Tokenomics 2024 </a></i></li></ul></ul>
-        <div class="tag-group"><span class="tag">Blockchain</span><span class="tag">Game Theory</span></div>
-    </div>
-
-    <div class="paper GameTheory">
-        <li class="title">Learning to Manipulate a Commitment Optimizer (<a href="https://arxiv.org/abs/2302.11829" target="_blank">arXiv</a>)</li>
-        <ul><ul><li>Yurong Chen, Xiaotie Deng, Jiarui Gan, Yuhao Li</li></ul></ul>
-        <ul><ul><li><i>EC 2025 (The ACM Conference on Economics and Computation)</i></li></ul></ul>
-        <div class="tag-group"><span class="tag">Game Theory</span></div>
-    </div>
-
-
-    <div class="paper ">
-        <li class="title"> Relative-error Monotonicity Testing (<a href="https://arxiv.org/abs/2410.09235" target="_blank">arXiv</a>)</li>
-        <ul><ul><li>Xi Chen, Anindya De, Yizhi Huang, Yuhao Li, Shivam Nadimpalli, Rocco A. Servedio, Tianqi Yang</li></ul></ul>
-        <ul><ul><li><i>SODA 2025 (ACM-SIAM Symposium on Discrete Algorithms)</i></li></ul></ul>
-        <div class="tag-group"><span class="tag">Property Testing</span></div>
-    </div>
-
-<p style="font-family:verdana;font-size:135%;color:DodgerBlue;padding-left:0.3em"> 2024 </p>
-
-
-    <div class="paper TFNP FixedPoint">
-        <li class="title"> Computing a Fixed Point of Contraction Maps in Polynomial Queries (<a href="https://arxiv.org/abs/2403.19911" target="_blank">arXiv</a>, <a href="https://eccc.weizmann.ac.il/report/2024/057/" target="_blank">ECCC</a>, <a href="https://www.youtube.com/watch?v=v8T-ZVp7QyY" target="_blank">Talk at Simons</a>, <a href="./files/2024.7 Simons Contraction.pdf" target="_blank">slides</a>)</li>
-        <ul><ul><li>Xi Chen, Yuhao Li, Mihalis Yannakakis</li></ul></ul>
-        <ul><ul><li><i>STOC 2024 (ACM Symposium on Theory of Computing)</i></li></ul></ul>
-        <ul><ul><li><i>Journal of the ACM</i></li></ul></ul>
-
-        <div class="tag-group"><span class="tag">TFNP</span><span class="tag fixedpoint-tag">Fixed Point</span></div>
-    </div>
-
-    <div class="paper TFNP ProofComplexity">
-        <li class="title"> Intersection Classes in TFNP and Proof Complexity (<a href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2024.74" target="_blank">ITCS</a>)</li>
-        <ul><ul><li>Yuhao Li, William Pires, Robert Robere</li></ul></ul>
-        <ul><ul><li><i>ITCS 2024 (Innovations in Theoretical Computer Science)</i></li></ul></ul>
-        <div class="tag-group"><span class="tag">TFNP</span><span class="tag">Proof Complexity</span></div>
-    </div>
-
-    <div class="paper ">
-        <li class="title"> Testing Intersecting and Union-Closed Families (<a href="https://arxiv.org/abs/2311.11119" target="_blank">arXiv</a>)</li>
-        <ul><ul><li>Xi Chen, Anindya De, Yuhao Li, Shivam Nadimpalli, Rocco A. Servedio</li></ul></ul>
-        <ul><ul><li><i>ITCS 2024 (Innovations in Theoretical Computer Science)</i></li></ul></ul>
-        <div class="tag-group"><span class="tag">Property Testing</span></div>
-    </div>
-
-    <div class="paper ">
-        <li class="title"> Mildly Exponential Lower Bounds on Tolerant Testers for Monotonicity, Unateness, and Juntas (<a href="https://arxiv.org/abs/2309.12513" target="_blank">arXiv</a>)</li>
-        <ul><ul><li>Xi Chen, Anindya De, Yuhao Li, Shivam Nadimpalli, Rocco A. Servedio</li></ul></ul>
-        <ul><ul><li><i>SODA 2024 (ACM-SIAM Symposium on Discrete Algorithms)</i></li></ul></ul>
-        <div class="tag-group"><span class="tag">Property Testing</span></div>
-    </div>
-
-
-
-<p style="font-family:verdana;font-size:135%;color:DodgerBlue;padding-left:0.3em"> 2023 </p>
-
-
-    <div class="paper Blockchain">
-        <li class="title"> MEV Makes Everyone Happy under Greedy Sequencing Rule (<a href="http://arxiv.org/abs/2309.12640" target="_blank">arXiv</a>)</li>
-        <ul><ul><li>Yuhao Li*, Mengqian Zhang*, Jichen Li*, Elynn Chen, Xi Chen <i style="color:#57068c;">(at NYU)</i>, Xiaotie Deng (Non-alphabetical order)</li></ul></ul>
-        <ul><ul><li><i>CCS DeFi 2023 (ACM CCS Workshop on Decentralized Finance and Security)</i></li></ul></ul>
-        <ul><ul><li><i>Also accepted for presentation in <a href="https://tokenomics2023.splashthat.com/" target="_blank">Tokenomics 2023</a> (International Conference on Blockchain Economics, Security and Protocols)</i></li></ul></ul>
-        <div class="tag-group"><span class="tag">Blockchain</span></div>
-    </div>
-
-    <div class="paper TFNP FixedPoint">
-        <li class="title"> Reducing Tarski to Unique Tarski (in the Black-box Model) (<a href="https://eccc.weizmann.ac.il/report/2023/073/" target="_blank">ECCC</a>)</li>
-        <ul><ul><li>Xi Chen, Yuhao Li, Mihalis Yannakakis</li></ul></ul>
-        <ul><ul><li><i>CCC 2023 (Computational Complexity Conference)</i></li></ul></ul>
-        <ul><ul><li><i>SIAM Journal on Computing</i></li></ul></ul>
-        <div class="tag-group"><span class="tag">TFNP</span><span class="tag fixedpoint-tag">Fixed Point</span><span class="tag special">Special Issue</span></div>
-    </div>
-
-<p style="font-family:verdana;font-size:135%;color:DodgerBlue;padding-left:0.3em"> 2022 </p>
-
-
-    <div class="paper Blockchain GameTheory">
-        <li class="title"> Insightful Mining Equilibria (<a href="https://arxiv.org/abs/2202.08466" target="_blank">arXiv</a>)</li>
-        <ul><ul><li>Mengqian Zhang*, Yuhao Li, Jichen Li, Chaozhe Kong, Xiaotie Deng</li></ul></ul>
-        <ul><ul><li><i>WINE 2022 (The Conference on Web and Internet Economics)</i></li></ul></ul>
-        <div class="tag-group"><span class="tag">Blockchain</span><span class="tag">Game Theory</span></div>
-    </div>
-
-    <div class="paper GameTheory">
-        <li class="title"> Optimal Private Payoff Manipulation against Commitment in Extensive-form Games (<a href="https://arxiv.org/abs/2206.13119" target="_blank">arXiv</a>)</li>
-        <ul><ul><li>Yurong Chen, Xiaotie Deng, Yuhao Li</li></ul></ul>
-        <ul><ul><li><i>WINE 2022 (The Conference on Web and Internet Economics)</i></li></ul></ul>
-        <ul><ul><li><i>Games and Economic Behavior</i></li></ul></ul>
-        <div class="tag-group"><span class="tag">Game Theory</span><span class="tag special">Best Student Paper</span></div>
-    </div>
-
-    <div class="paper TFNP FixedPoint">
-        <li class="title"> Improved Upper Bounds for Finding Tarski Fixed Points (<a href="https://arxiv.org/abs/2202.05913" target="_blank">arXiv</a>)</li>
-        <ul><ul><li>Xi Chen, Yuhao Li</li></ul></ul>
-        <ul><ul><li><i>EC 2022 (The ACM Conference on Economics and Computation)</i> </li></ul></ul>
-        <div class="tag-group"><span class="tag">TFNP</span><span class="tag fixedpoint-tag">Fixed Point</span></div>
-    </div>
-
-
-    <div class="paper GameTheory">
-        <li class="title"> Tight Incentive Analysis on Sybil Attacks to Market Equilibrium of Resource Exchange over General Networks (<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4226863" target="_blank">SSRN</a>)</li>
-        <ul><ul><li>Yukun Cheng, Xiaotie Deng, Yuhao Li, Xiang Yan</li></ul></ul>
-        <ul><ul><li><i>EC 2022 (The ACM Conference on Economics and Computation)</i></li></ul></ul>
-        <ul><ul><li><i>Games and Economic Behavior</i></li></ul></ul>
-        <div class="tag-group"><span class="tag">Game Theory</span></div>
-    </div>
-</div>
-</div>
-
-<div id="visits" class="page-section" style="display: none;">
-  <div class="card-box">
-    <h2>Academic Visits</h2>
-    <li class="title"> Simons Institute, UC Berkeley (Summer 2024), <a href="https://simons.berkeley.edu/programs/sublinear-algorithms">Sublinear Algorithm</a> (and <a href="https://simons.berkeley.edu/programs/extended-reunion-theoretical-foundations-computer-systems">Theoretical Foundations of Computer Systems</a>)</li>
-    <li class="title"> McGill University (Summer 2023), hosted by <a href="https://www.cs.mcgill.ca/~robere/">Robert Robere</a></li>
-    <li class="title"> Simons Institute, UC Berkeley (Spring 2023), <a href="https://simons.berkeley.edu/programs/Meta-Complexity2023">Meta-Complexity</a></li>
-    <li class="title"> Peking University (Summer 2022), hosted by <a href="https://cfcs.pku.edu.cn/english/people/faculty/xiaotiedeng/index.htm">Xiaotie Deng</a></li>
-</div>
-</div>
-
-    <script>
-        function filterPubs(tag) {
-            const papers = document.getElementsByClassName("paper");
-            for (let i = 0; i < papers.length; i++) {
-                let paper = papers[i];
-                if (tag === "all" || paper.classList.contains(tag)) {
-                    paper.style.display = "block";
-                } else {
-                    paper.style.display = "none";
-                }
-            }
-        }
-    </script>
-
-    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=0&t=n&d=UQ7aDFZlptcZssb7wqks3GVZR3PUIFz6Y-Z4YEMBdkE'></script>
-
-    <div class="foot">
-        Last updated: Nov 4, 2025
-    </div>
-
-<script>
-    function showSection(id) {
-        const sections = document.getElementsByClassName('page-section');
-        for (let i = 0; i < sections.length; i++) {
-            sections[i].style.display = 'none';
-        }
-        document.getElementById(id).style.display = 'block';
-        window.scrollTo(0, 0); // scroll to top
+  <script>
+    function filterPubs(tag) {
+      const papers = document.getElementsByClassName("paper");
+      for (let i = 0; i < papers.length; i++) {
+        const paper = papers[i];
+        paper.style.display = (tag === "all" || paper.classList.contains(tag)) ? "block" : "none";
+      }
     }
-</script>
 
+    function showSection(id) {
+      const sections = document.getElementsByClassName("page-section");
+      for (let i = 0; i < sections.length; i++) sections[i].style.display = "none";
+      document.getElementById(id).style.display = "block";
+      window.scrollTo(0, 0);
+    }
+  </script>
 
+  <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=0&t=n&d=UQ7aDFZlptcZssb7wqks3GVZR3PUIFz6Y-Z4YEMBdkE"></script>
+
+  <div class="foot">Last updated: Nov 4, 2025</div>
 </body>
 </html>
