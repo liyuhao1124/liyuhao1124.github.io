@@ -5,211 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yuhao Li's Homepage</title>
   <link rel="stylesheet" href="./files/main.css" type="text/css">
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
-
-
-  <style>
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background-color: #f8f8f8;
-      font-family: "Segoe UI", Arial, sans-serif;
-      color: #333;
-      line-height: 1.55;
-    }
-
-    a:link, a:visited { color: DodgerBlue; text-decoration: none; }
-    a:hover { color: DodgerBlue; text-decoration: underline; }
-    a:active { color: DodgerBlue; text-decoration: underline; }
-
-    .page-section {
-      padding: 80px 40px 40px;
-      box-sizing: border-box;
-    }
-
-    .card-box {
-      max-width: 1100px;
-      min-height: calc(100vh - 160px);
-      margin: 0 auto;
-      padding: 40px 60px;
-      background-color: #fff;
-      border-radius: 6px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.08);
-      box-sizing: border-box;
-    }
-
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #fff;
-      padding: 10px 0;
-      border-bottom: 1px solid #ccc;
-      text-align: center;
-      z-index: 1000;
-    }
-    .navbar a { margin: 0 15px; }
-
-    .flex-layout {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 30px;
-    }
-    .left-column { flex: 0 0 320px; }
-    .right-column { flex: 1; min-width: 0; }
-
-    .profile-pic {
-      width: 100%;
-      border-radius: 8px;
-      margin-top: 30px;
-      display: block;
-    }
-
-    .news-section { padding-left: 40px; }
-    .news-table { width: 100%; margin-top: 10px; box-sizing: border-box; }
-    .news-row { display: flex; gap: 16px; margin-bottom: 12px; }
-    .news-date { flex: 0 0 100px; font-weight: 700; color: #555; }
-    .news-content { flex: 1; min-width: 0; }
-
-    #filters { margin-top: 4px; margin-bottom: 12px; }
-    .filter-btn{
-      margin: 5px 4px;
-      padding: 5px 10px;
-      cursor: pointer;
-      border: 1px solid #ccc;
-      background-color: #f9f9f9;
-      border-radius: 6px;
-      font: inherit;
-      line-height: 1.1;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .filter-btn:hover { background-color: #ddd; }
-
-    .fixedpoint-tag{
-      font-family: "Kalam", cursive;
-      font-weight: 700;  font-weight: 600;
-      font-size: 1.05em;
-      letter-spacing: 0.5px;
-
-      background: rgba(30,144,255,0.12);
-      color: DodgerBlue;
-      border: 1px solid rgba(30,144,255,0.55);
-      border-radius: 999px;
-
-      padding: 4px 14px;
-      display: inline-flex;
-      align-items: center;
-      line-height: 1.1;
-      position: relative;
-      top: -1px;
-    }
-
-
-    #publications ul, #publications ol { margin: 0; padding: 0; list-style: none; }
-    #publications li { list-style: none; }
-
-    .year-divider {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin: 44px 0 22px;
-    }
-    .year-divider::before,
-    .year-divider::after {
-      content: "";
-      flex: 1;
-      border-bottom: 1px solid #eee;
-    }
-    .year-divider span {
-      font-size: 1.15em;
-      font-weight: 600;
-      color: #888;
-      letter-spacing: 1px;
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    .paper {
-      margin: 0 0 1.6em 0;
-      font-size: 0.97em;
-      line-height: 1.45;
-    }
-
-    .paper-title {
-      display: block;
-      font-weight: 700;
-      font-size: 1.05em;
-      color: #000;
-      text-decoration: none;
-      margin: 0 0 4px 0;
-      line-height: 1.32;
-    }
-    #publications a.paper-title:link,
-    #publications a.paper-title:visited,
-    #publications a.paper-title:hover,
-    #publications a.paper-title:active {
-      color: #000;
-      text-decoration: none;
-    }
-    #publications a.paper-title:hover { text-decoration: underline; }
-
-    .authors-row {
-      color: #333;
-      font-size: 0.95em;
-      margin: 0 0 3px 0;
-    }
-
-    .venue-row {
-      color: #a52a2a;
-      font-weight: 500;
-      font-size: 0.95em;
-      margin: 0;
-    }
-
-    .supp-link {
-      color: DodgerBlue;
-      margin-left: 10px;
-      text-decoration: none;
-      font-weight: 400;
-      font-size: 0.9em;
-      white-space: nowrap;
-    }
-    .supp-link:hover { text-decoration: underline; }
-
-    .special {
-      background-color: #FDE047;
-      color: #713F12;
-      font-weight: 700;
-      padding: 0 6px;
-      border-radius: 4px;
-      margin-left: 10px;
-      display: inline-block;
-    }
-
-    #visits ul { padding-left: 26px; margin: 0; }
-
-    .foot {
-      text-align: center;
-      margin: 0 0 20px;
-      color: #888;
-      font-size: 0.8em;
-    }
-
-    @media (max-width: 900px) {
-      .page-section { padding: 80px 18px 24px; }
-      .card-box { padding: 28px 22px; }
-      .flex-layout { flex-direction: column; }
-      .left-column { flex: none; width: 100%; max-width: 420px; }
-      .news-section { padding-left: 0; }
-      .news-row { flex-direction: column; gap: 6px; }
-      .news-date { flex: none; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&amp;display=swap" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&amp;display=swap" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -223,11 +20,11 @@
     <div class="card-box">
       <div class="flex-layout">
         <div class="left-column">
-          <img id="profilePic" src="./files/Yuhao Disney.jpg" alt="Yuhao Li" class="profile-pic" loading="lazy" decoding="async">
+          <img id="profilePic" src="./files/Yuhao%20Disney.jpg" alt="Yuhao Li" class="profile-pic" loading="lazy" decoding="async">
           <div class="contact-box">
             <p><strong>Email</strong>: yuhaoli at cs.columbia.edu</p>
             <p><strong>Office</strong>: 516 Computer Science Building</p>
-            <p><a href="https://scholar.google.com/citations?user=VBjlDboAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></p>
+            <p><a href="https://scholar.google.com/citations?user=VBjlDboAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a></p>
           </div>
         </div>
 
@@ -306,15 +103,15 @@
       </p>
 
       <div class="year-divider"><span>2026</span></div>
-      
+
       <div class="paper TFNP FixedPoint">
-        <a class="paper-title"  href="https://arxiv.org/abs/2604.00268" target="_blank" rel="noopener">The Mystery Deepens: On the Query Complexity of Tarski Fixed Points</a>
+        <a class="paper-title" href="https://arxiv.org/abs/2604.00268" target="_blank" rel="noopener">The Mystery Deepens: On the Query Complexity of Tarski Fixed Points</a>
         <div class="authors-row">Xi Chen, Yuhao Li, Mihalis Yannakakis</div>
         <div class="venue-row">In submission</div>
       </div>
 
       <div class="paper TFNP FixedPoint">
-        <a class="paper-title"  href="https://arxiv.org/abs/2602.10296" target="_blank" rel="noopener">Quadratic Speedup for Computing Contraction Fixed Points</a>
+        <a class="paper-title" href="https://arxiv.org/abs/2602.10296" target="_blank" rel="noopener">Quadratic Speedup for Computing Contraction Fixed Points</a>
         <div class="authors-row">Xi Chen, Yuhao Li, Mihalis Yannakakis</div>
         <div class="venue-row">In submission</div>
       </div>
@@ -339,7 +136,7 @@
         <a class="paper-title" href="https://fc26.ifca.ai/preproceedings/216.pdf" target="_blank" rel="noopener">
           A Trilemma in AMM Mechanism Design
         </a>
-        <span class="paper-title"></span>
+
         <div class="authors-row">Yuhao Li, Elaine Shi, Mengqian Zhang (Randomized Order)</div>
         <div class="venue-row">FC 2026</div>
       </div>
@@ -490,25 +287,23 @@
       </ul>
     </div>
   </div>
+  <script src="./files/main.js" type="text/javascript"></script>
 
-  <script>
-    function filterPubs(tag) {
-      const papers = document.getElementsByClassName("paper");
-      for (let i = 0; i < papers.length; i++) {
-        const paper = papers[i];
-        paper.style.display = (tag === "all" || paper.classList.contains(tag)) ? "block" : "none";
-      }
-    }
-
-    function showSection(id) {
-      const sections = document.getElementsByClassName("page-section");
-      for (let i = 0; i < sections.length; i++) sections[i].style.display = "none";
-      document.getElementById(id).style.display = "block";
-      window.scrollTo(0, 0);
-    }
+  <!-- Default Statcounter code for website http://yuhao.li -->
+  <script type="text/javascript">
+    var sc_project = 13319879;
+    var sc_invisible = 1;
+    var sc_security = "0416efe2";
   </script>
-
-  <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=0&t=n&d=UQ7aDFZlptcZssb7wqks3GVZR3PUIFz6Y-Z4YEMBdkE"></script>
+  <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+  <noscript>
+    <div class="statcounter">
+      <a title="Web Analytics" href="https://statcounter.com/" target="_blank">
+        <img class="statcounter" src="https://c.statcounter.com/13319879/0/0416efe2/1/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade">
+      </a>
+    </div>
+  </noscript>
+  <!-- End of Statcounter Code -->
 
   <div class="foot">Last updated: May 21, 2026</div>
 </body>
