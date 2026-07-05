@@ -126,6 +126,21 @@ a:active {
   min-width: 0;
 }
 
+.news-content a,
+.news-content a:link,
+.news-content a:visited,
+.news-content a:hover,
+.news-content a:active {
+  color: DodgerBlue;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.news-content a:hover,
+.news-content a:active {
+  text-decoration: underline;
+}
+
 #filters {
   margin-top: 4px;
   margin-bottom: 12px;
