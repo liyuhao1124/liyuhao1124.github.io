@@ -5,6 +5,20 @@ function filterPubs(tag) {
     paper.style.display =
       tag === "all" || paper.classList.contains(tag) ? "block" : "none";
   }
+
+  const dividers = document.querySelectorAll("#publications .year-divider");
+  for (const divider of dividers) {
+    let hasVisiblePaper = false;
+    let item = divider.nextElementSibling;
+    while (item && !item.classList.contains("year-divider")) {
+      if (item.classList.contains("paper") && item.style.display !== "none") {
+        hasVisiblePaper = true;
+        break;
+      }
+      item = item.nextElementSibling;
+    }
+    divider.style.display = hasVisiblePaper ? "flex" : "none";
+  }
 }
 
 function showSection(id) {
