@@ -1,10 +1,25 @@
 function filterPubs(tag) {
-  const papers = document.getElementsByClassName("paper");
+  const papers = document.querySelectorAll("#publications .paper");
+  let visibleCount = 0;
   for (let i = 0; i < papers.length; i++) {
     const paper = papers[i];
-    paper.style.display =
-      tag === "all" || paper.classList.contains(tag) ? "block" : "none";
+    const isVisible = tag === "all" || paper.classList.contains(tag);
+    paper.style.display = isVisible ? "block" : "none";
+    if (isVisible) visibleCount++;
   }
+
+  let filterLabel = tag;
+  const buttons = document.querySelectorAll("#publications .filter-btn");
+  for (const button of buttons) {
+    const isSelected = button.dataset.filter === tag;
+    button.setAttribute("aria-pressed", String(isSelected));
+    if (isSelected) filterLabel = button.textContent.trim();
+  }
+
+  document.getElementById("filter-status").textContent =
+    tag === "all"
+      ? `Showing all ${papers.length} papers`
+      : `${filterLabel}: showing ${visibleCount} of ${papers.length} papers`;
 
   const dividers = document.querySelectorAll("#publications .year-divider");
   for (const divider of dividers) {
@@ -29,3 +44,5 @@ function showSection(id) {
   document.getElementById(id).style.display = "block";
   window.scrollTo(0, 0);
 }
+
+filterPubs("all");

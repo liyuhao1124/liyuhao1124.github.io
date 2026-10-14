@@ -152,6 +152,7 @@ a:active {
   cursor: pointer;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
+  color: #333;
   border-radius: 6px;
   font: inherit;
   line-height: 1.1;
@@ -161,6 +162,15 @@ a:active {
 
 .filter-btn:hover {
   background-color: #ddd;
+}
+
+.filter-btn:focus-visible {
+  outline: 2px solid #1769aa;
+  outline-offset: 3px;
+}
+
+.filter-btn:active {
+  transform: translateY(1px);
 }
 
 .fixedpoint-tag {
@@ -178,6 +188,19 @@ a:active {
   line-height: 1.1;
   position: relative;
   top: -1px;
+}
+
+.filter-btn[aria-pressed="true"] {
+  background-color: #1769aa;
+  border-color: #1769aa;
+  color: #fff;
+}
+
+.filter-status {
+  margin: 18px 0 0;
+  min-height: 1.55em;
+  color: #555;
+  font-size: 0.9em;
 }
 
 #publications ul,
