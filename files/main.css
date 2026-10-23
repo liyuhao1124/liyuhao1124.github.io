@@ -291,6 +291,11 @@ a:active {
   margin: 0;
 }
 
+.paper-award,
+.invited-talk {
+  color: DodgerBlue;
+}
+
 .supp-link {
   color: DodgerBlue;
   margin-left: 10px;

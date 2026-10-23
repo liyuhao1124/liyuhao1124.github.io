@@ -37,12 +37,21 @@ function filterPubs(tag) {
 }
 
 function showSection(id) {
+  const requestedSection = document.getElementById(id);
+  const activeSection = requestedSection && requestedSection.classList.contains("page-section")
+    ? requestedSection
+    : document.getElementById("home");
   const sections = document.getElementsByClassName("page-section");
   for (let i = 0; i < sections.length; i++) {
-    sections[i].style.display = "none";
+    sections[i].style.display = sections[i] === activeSection ? "block" : "none";
   }
-  document.getElementById(id).style.display = "block";
   window.scrollTo(0, 0);
 }
 
+function showSectionFromHash() {
+  showSection(window.location.hash.slice(1) || "home");
+}
+
+window.addEventListener("hashchange", showSectionFromHash);
 filterPubs("all");
+showSectionFromHash();
